@@ -4,6 +4,7 @@
   "description": "A CLI to create chord sheets out of markdown files",
   "main": "index.js",
   "dependencies": {
+    "colors": "^1.1.2",
     "markdown-it": "^8.1.0",
     "markdown-it-regexp": "^0.4.0"
   },
@@ -16,7 +17,12 @@
     "type": "git",
     "url": "https://github.com/gldraphael/chordsheet"
   },
-  "keywords": ["chord", "chords", "chordsheet", "sheet"],
+  "keywords": [
+    "chord",
+    "chords",
+    "chordsheet",
+    "sheet"
+  ],
   "bin": {
     "chordsheet": "index.js"
   }
