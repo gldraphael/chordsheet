@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+const processFile = require('./process-file.js');
 require('colors');
 
 // Print error message and quit if an error is found
@@ -14,13 +15,9 @@ var args = process.argv.slice(2);
 if(args.length == 0) {
   console.log('Syntax: chordsheet <input-file> [output-file]'.cyan);
   process.exit(1);
-} else if(args.length > 2) {
-  console.error('Too many arguments found'.red);
-  console.log('Syntax: chordsheet <input-file> [output-file]'.cyan);
-  process.exit(1);
 }
 
-// Assume the next path is the input file to be processed
-var input = args[0];
-
-require('./process-file.js')(input)
+// The arguments are input files
+args.forEach(function(input) {
+  processFile(input)
+}, this);
