@@ -16,6 +16,7 @@
     "type": "git",
     "url": "https://github.com/gldraphael/chordsheet"
   },
+  "keywords": ["chord", "chords", "chordsheet", "sheet"],
   "bin": {
     "chordsheet": "index.js"
   }
