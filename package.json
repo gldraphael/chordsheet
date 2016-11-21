@@ -1,0 +1,11 @@
+{
+  "name": "markdown-chords",
+  "version": "0.0.1",
+  "description": "A tool to create chord sheets out of markdown files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gldraphael",
+  "license": "MIT"
+}
