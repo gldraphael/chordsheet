@@ -60,7 +60,7 @@ module.exports = function processFile(input, output) {
             var result = md.render(data);
             fs.writeFile(output, header + result + footer, function(err) {
               if(err) {
-                return console.log(err);
+                throw new Error(err);
               } else {
                 // Success!
               }
@@ -70,8 +70,7 @@ module.exports = function processFile(input, output) {
       });
     } else { 
       // The file doesn't exist
-      // console.error('The file ' + input + ' doesnt exist');
-      throw new Error(input + 'not found'); 
+      throw new Error(input + ' not found'); 
     }
   }); 
 }
