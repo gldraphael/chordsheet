@@ -12,6 +12,10 @@
   },
   "author": "gldraphael",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gldraphael/chordsheet"
+  },
   "bin": {
     "chordsheet": "index.js"
   }
