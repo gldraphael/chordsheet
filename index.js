@@ -1,5 +1,11 @@
 #! /usr/bin/env node
 
+// Print error message and quit if an error is found
+process.on('uncaughtException', function(error) {
+  console.error('Error: ' + error.message)
+  process.exit(1)
+});
+
 // Remove the first two paths
 var args = process.argv.slice(2);
 
