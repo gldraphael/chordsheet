@@ -1,8 +1,12 @@
 {
-  "name": "markdown-chords",
+  "name": "chordsheet",
   "version": "0.0.1",
-  "description": "A tool to create chord sheets out of markdown files",
+  "description": "A CLI to create chord sheets out of markdown files",
   "main": "index.js",
+  "devDependencies": {
+    "markdown-it": "^8.1.0",
+    "markdown-it-regexp": "^0.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
