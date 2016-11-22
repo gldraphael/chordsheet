@@ -28,7 +28,8 @@ var md = require('markdown-it')({
   quotes: '“”‘’'
 }).use(chordPattern);
 
-var header = '<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Test</title><link href="style.css" rel="stylesheet" type="text/css"></head><body>';
+var stylePath = require.resolve('./template/style.css');
+var header = '<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Test</title><link href="' + stylePath + '" rel="stylesheet" type="text/css"></head><body>';
 var footer = '</body></html>';
 
 module.exports = function processFile(input, output) {
