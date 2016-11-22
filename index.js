@@ -9,15 +9,18 @@ process.on('uncaughtException', function(error) {
   process.exit(1)
 });
 
-// Remove the first two paths
-var args = process.argv.slice(2);
+// Get arguments using minimist
+var args = require('minimist')(process.argv.slice(2));
 
-if(args.length == 0) {
+console.log(args)
+
+// Input files don't exist
+if(args._.length == 0) {
   console.log('Syntax: chordsheet <input-file> [output-file]'.cyan);
   process.exit(1);
 }
 
 // The arguments are input files
-args.forEach(function(input) {
+args._.forEach(function(input) {
   processFile(input)
 }, this);
