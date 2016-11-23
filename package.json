@@ -1,7 +1,7 @@
 {
   "name": "chordsheet",
-  "version": "0.0.4",
-  "description": "A CLI to create chord sheets out of markdown files",
+  "version": "0.1.0",
+  "description": "An NPM module to create chord sheets out of markdown files",
   "main": "index.js",
   "dependencies": {
     "colors": "^1.1.2",
@@ -23,8 +23,5 @@
     "chords",
     "chordsheet",
     "sheet"
-  ],
-  "bin": {
-    "chordsheet": "index.js"
-  }
+  ]
 }
