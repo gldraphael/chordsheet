@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "markdown-it": "^8.1.0",
-    "markdown-it-regexp": "^0.4.0"
+    "markdown-it-regexp": "^0.4.0",
+    "html-pdf": "2.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

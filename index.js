@@ -32,17 +32,23 @@ var stylePath = require.resolve('./template/style.css');
 var header = '<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Test</title><link href="' + stylePath + '" rel="stylesheet" type="text/css"></head><body>';
 var footer = '</body></html>';
 
-module.exports = function processFile(input, output) {
+module.exports = function processFile(input, options) {
 
   // Ensure the input filename is provided
   if(input === undefined) {
     throw new Error('Input is required'); 
   }
 
-  // The output is missing
-  if(output === undefined) {
-    // let's append .html to input and use it
-    output = input + '.html';
+  // Set default options
+  if(options.format === undefined) {
+    options.format = '.pdf';
+  }
+
+  var output = input;
+  if(options.format == 'pdf') {
+    output += '.pdf';
+  } else if(options.format == 'html') {
+    output += '.html';
   }
   
   fs.exists(input, function (exists) {
@@ -59,13 +65,27 @@ module.exports = function processFile(input, output) {
 
             // Convert markdown to html and write to file
             var result = md.render(data);
-            fs.writeFile(output, header + result + footer, function(err) {
-              if(err) {
-                throw new Error(err);
-              } else {
-                // Success!
-              }
-            }); 
+
+            if(options.format == 'pdf') {
+              // Generate the PDF file
+              var pdf = require('html-pdf');
+              pdf.create(html, options).toFile(output, function(err, res) {
+                if (err) {
+                  throw err;
+                } else {
+                  console.log(res);
+                } 
+              });
+            } else if(options.format == 'html') {
+              // Write rendered output to the HTML file
+              fs.writeFile(output, header + result + footer, function(err) {
+                if(err) {
+                  throw new Error(err);
+                } else {
+                  // Success!
+                }
+              });
+            }
           });
         });
       });
