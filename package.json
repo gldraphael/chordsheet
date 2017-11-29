@@ -1,12 +1,11 @@
 {
   "name": "chordsheet",
-  "version": "0.1.0",
+  "version": "1.0.0-dev.1",
   "description": "An NPM module to create chord sheets out of markdown files",
   "main": "index.js",
   "dependencies": {
     "markdown-it": "^8.1.0",
-    "markdown-it-regexp": "^0.4.0",
-    "html-pdf": "2.1.0"
+    "markdown-it-regexp": "^0.4.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,9 +17,9 @@
     "url": "git+https://github.com/gldraphael/chordsheet.git"
   },
   "bugs": {
-    "url": "https://github.com/gldraphael/chordsheet-cli/issues"
+    "url": "https://github.com/gldraphael/chordsheet/issues"
   },
-  "homepage": "https://github.com/gldraphael/chordsheet-cli#readme",
+  "homepage": "https://github.com/gldraphael/chordsheet#readme",
   "keywords": [
     "chord",
     "chords",

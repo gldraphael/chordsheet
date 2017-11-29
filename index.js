@@ -1,6 +1,5 @@
 // Load required plugins
 const mdRegex = require('markdown-it-regexp')
-const fs = require('fs');
 
 var chordPattern = mdRegex(
   // regexp to match 
@@ -28,70 +27,11 @@ var md = require('markdown-it')({
   quotes: '“”‘’'
 }).use(chordPattern);
 
-var stylePath = require.resolve('./template/style.css');
-var header = '<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Test</title><link href="' + stylePath + '" rel="stylesheet" type="text/css"></head><body>';
-var footer = '</body></html>';
-
-module.exports = function processFile(input, options) {
-
-  // Ensure the input filename is provided
-  if(input === undefined) {
-    throw new Error('Input is required'); 
-  }
-
-  // Set default options
-  if(options.format === undefined) {
-    options.format = '.pdf';
-  }
-
-  var output = input;
-  if(options.format == 'pdf') {
-    output += '.pdf';
-  } else if(options.format == 'html') {
-    output += '.html';
-  }
+module.exports = function generateHtml(chordMarkdownText) {
   
-  fs.exists(input, function (exists) {
-    // If the file exists
-    if (exists) {
-      fs.stat(input, function (error, stats) {
-        fs.open(input, "r", function (error, fd) {
-          var buffer = new Buffer(stats.size);
+  if(chordMarkdownText === undefined) {
+    throw new Error('Argument chordMarkdownText is required.'); 
+  }
 
-          fs.read(fd, buffer, 0, buffer.length, null, function (error, bytesRead, buffer) {
-            // Read the input file and close it
-            var data = buffer.toString("utf8", 0, buffer.length);
-            fs.close(fd);
-
-            // Convert markdown to html and write to file
-            var result = md.render(data);
-
-            if(options.format == 'pdf') {
-              // Generate the PDF file
-              var pdf = require('html-pdf');
-              pdf.create(html, options).toFile(output, function(err, res) {
-                if (err) {
-                  throw err;
-                } else {
-                  console.log(res);
-                } 
-              });
-            } else if(options.format == 'html') {
-              // Write rendered output to the HTML file
-              fs.writeFile(output, header + result + footer, function(err) {
-                if(err) {
-                  throw new Error(err);
-                } else {
-                  // Success!
-                }
-              });
-            }
-          });
-        });
-      });
-    } else { 
-      // The file doesn't exist
-      throw new Error(input + ' not found'); 
-    }
-  }); 
+  return md.render(data)
 }
