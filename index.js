@@ -1,7 +1,8 @@
-// Load required plugins
+// Load the markdown-it regex plugin
 const mdRegex = require('markdown-it-regexp')
 
-var chordPattern = mdRegex(
+// Set our chord's identifier regex pattern and replacement string
+const chordPattern = mdRegex(
   // regexp to match 
   // Assuming anything within square brackets to be a chord
   /\[(\w+)\]/,
@@ -12,7 +13,8 @@ var chordPattern = mdRegex(
   }
 )
 
-var md = require('markdown-it')({
+// Import markdown-it and configure it to use our chordpattern
+const md = require('markdown-it')({
   html:         false,        // Enable HTML tags in source
   xhtmlOut:     true,         // Use '/' to close single tags (<br />).
                               // This is only for full CommonMark compatibility.
@@ -25,8 +27,9 @@ var md = require('markdown-it')({
   // Double + single quotes replacement pairs, when typographer enabled,
   // and smartquotes on. Could be either a String or an Array.
   quotes: '“”‘’'
-}).use(chordPattern);
+}).use(chordPattern)
 
+// Export our plugin
 module.exports = function generateHtml(chordMarkdownText) {
   
   if(chordMarkdownText === undefined) {
