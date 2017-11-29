@@ -3,10 +3,10 @@ const mdRegex = require('markdown-it-regexp')
 
 // Set our chord's identifier regex pattern and replacement string
 const chordPattern = mdRegex(
-  // regexp to match 
+  // regexp to match
   // Assuming anything within square brackets to be a chord
   /\[(\w+)\]/,
- 
+
   // this function will be called when something's in square brackets
   function(match, utils) {
     return '<span class="chord"><span class="inner">' + match[1] + '</span></span>';
@@ -30,10 +30,10 @@ const md = require('markdown-it')({
 }).use(chordPattern)
 
 // Export our plugin
-module.exports = function generateHtml(chordMarkdownText) {
-  
+module.exports = function (chordMarkdownText) {
+
   if(chordMarkdownText === undefined) {
-    throw new Error('Argument chordMarkdownText is required.'); 
+    throw new Error('Argument chordMarkdownText is required.');
   }
 
   return md.render(data)
