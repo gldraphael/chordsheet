@@ -36,5 +36,5 @@ module.exports = function (chordMarkdownText) {
     throw new Error('Argument chordMarkdownText is required.');
   }
 
-  return md.render(data)
+  return md.render(chordMarkdownText)
 }
