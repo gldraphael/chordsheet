@@ -1,6 +1,6 @@
 {
   "name": "chordsheet",
-  "version": "1.0.0-dev.10",
+  "version": "1.0.0-dev.11",
   "description": "An NPM module to render HTML code out of markdown text with chords.",
   "main": "index.js",
   "dependencies": {
