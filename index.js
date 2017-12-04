@@ -5,7 +5,7 @@ const mdRegex = require('markdown-it-regexp')
 const chordPattern = mdRegex(
   // regexp to match
   // Assuming anything within square brackets to be a chord
-  /\[(\w+)\]/,
+  /\[[A-G](#|b|m|M|7|9|11|13|\(|\)|add|sub|dim|aug|maj|min)*(\/[A-G]#?b?)?\]/,
 
   // this function will be called when something's in square brackets
   function(match, utils) {
