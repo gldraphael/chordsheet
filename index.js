@@ -29,12 +29,15 @@ const md = require('markdown-it')({
   quotes: '“”‘’'
 }).use(chordPattern)
 
-// Export our plugin
-module.exports = function (chordMarkdownText) {
 
-  if(chordMarkdownText === undefined) {
-    throw new Error('Argument chordMarkdownText is required.');
+module.exports = {
+
+  // Our exported function
+  toHtml: function (chordMarkdownText) {
+    if(chordMarkdownText === undefined) {
+      throw new Error('Argument chordMarkdownText is required.');
+    }
+    return md.render(chordMarkdownText)
   }
 
-  return md.render(chordMarkdownText)
 }
