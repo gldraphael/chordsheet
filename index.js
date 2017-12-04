@@ -1,11 +1,13 @@
 // Load the markdown-it regex plugin
 const mdRegex = require('markdown-it-regexp')
+// Load our chord-regex
+const chordRegex = require('../chord-regex')
 
 // Set our chord's identifier regex pattern and replacement string
 const chordPattern = mdRegex(
   // regexp to match
   // Assuming anything within square brackets to be a chord
-  /\[([A-G](#|b|m|M|7|9|11|13|\(|\)|add|sub|dim|aug|maj|min)*(\/[A-G]#?b?)?)\]/,
+  chordRegex,
 
   // this function will be called when something's in square brackets
   function(match, utils) {
