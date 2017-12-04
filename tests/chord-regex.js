@@ -1,4 +1,4 @@
-const chordRegex = require('../chord-regex')
+const chordRegex = require('../src/chord-regex')
 const tape = require('tape')
 
 tape('regex test', function (test) {
