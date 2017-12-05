@@ -1,7 +1,7 @@
 const chordRegex = require('../src/chord-regex')
 const tape = require('tape')
 
-tape('regex test', function (test) {
+tape('Regex against valid chords', function (test) {
   let chords = [
     'C', 'D', 'E', 'F', 'G', 'A', 'B', // white keys
     'C#', 'Eb', 'F#', 'Ab', 'G#', 'Bb', // sharps and flats
@@ -21,7 +21,7 @@ tape('regex test', function (test) {
       test.fail('Failed for input: ' + input)
     } else {
       const match = chordRegex.exec(input)[1]
-      test.equal(match, chord)
+      test.equal(match, chord, input + ' passed with match ' + match)
     }
   })
 })
