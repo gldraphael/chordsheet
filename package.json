@@ -2,7 +2,7 @@
   "name": "chordsheet",
   "version": "1.0.0-dev.13",
   "description": "An NPM module to render HTML code out of markdown text with chords.",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "markdown-it": "^8.1.0",
     "markdown-it-regexp": "^0.4.0"

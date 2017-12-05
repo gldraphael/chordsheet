@@ -1,7 +1,7 @@
 // Load the markdown-it regex plugin
 const mdRegex = require('markdown-it-regexp')
 // Load our chord-regex
-const chordRegex = require('../chord-regex')
+const chordRegex = require('./chord-regex')
 
 // Set our chord's identifier regex pattern and replacement string
 const chordPattern = mdRegex(
