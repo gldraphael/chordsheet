@@ -32,7 +32,7 @@ const chordsheetMarkdown = md({
 } as MarkdownItOptions)
 
 export class Chordsheet {
-  public toHtml(chordMarkdownText: string) {
+  public static toHtml(chordMarkdownText: string) {
     if (chordMarkdownText === undefined) {
       throw new Error("Argument chordMarkdownText is required.")
     }
