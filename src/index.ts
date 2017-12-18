@@ -1,7 +1,7 @@
-const mdRegex = require('markdown-it-regexp')
-import { chordRegex } from './chord-regex'
-import { MarkdownIt, Options as MarkdownItOptions } from 'markdown-it'
-import * as md from 'markdown-it'
+import { MarkdownIt, Options as MarkdownItOptions } from "markdown-it"
+import * as md from "markdown-it"
+import * as mdRegex from "markdown-it-regexp"
+import { chordRegex } from "./chord-regex"
 
 // Set our chord's identifier regex pattern and replacement string
 const chordPattern = mdRegex(
@@ -10,9 +10,9 @@ const chordPattern = mdRegex(
   chordRegex,
 
   // this function will be called when something's in square brackets
-  function (match: RegExpExecArray, utils: any) {
-    return '<span class="chord"><span class="inner">' + match[1] + '</span></span>'
-  }
+  (match: RegExpExecArray, utils: any) => {
+    return '<span class="chord"><span class="inner">' + match[1] + "</span></span>"
+  },
 )
 
 const chordsheetMarkdown = md({
@@ -28,13 +28,13 @@ const chordsheetMarkdown = md({
 
   // Double + single quotes replacement pairs, when typographer enabled,
   // and smartquotes on. Could be either a String or an Array.
-  quotes: '“”‘’'
+  quotes: "“”‘’",
 } as MarkdownItOptions)
 
 export class Chordsheet {
   public toHtml(chordMarkdownText: string) {
     if (chordMarkdownText === undefined) {
-      throw new Error('Argument chordMarkdownText is required.')
+      throw new Error("Argument chordMarkdownText is required.")
     }
     return chordsheetMarkdown.render(chordMarkdownText)
   }
