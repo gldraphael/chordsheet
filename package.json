@@ -2,24 +2,26 @@
   "name": "chordsheet",
   "version": "1.0.0-dev.14",
   "description": "An NPM module to render HTML code out of markdown text with chords.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "markdown-it": "^8.1.0",
     "markdown-it-regexp": "^0.4.0"
   },
   "devDependencies": {
-    "eslint": "^4.12.1",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "tape": "^4.8.0"
+    "@types/markdown-it": "^0.0.4",
+    "@types/tape": "^4.2.31",
+    "tape": "^4.8.0",
+    "ts-node": "^4.0.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/eslint **/*.js",
-    "lint.fix": "./node_modules/.bin/eslint **/*.js --fix",
-    "test": "node tests/**.js"
+    "prepublish": "npm run build",
+    "build": "tsc -p tsconfig.commonjs.json",
+    "lint": "./node_modules/.bin/tslint src/**/*.ts",
+    "lint.fix": "./node_modules/.bin/tslint src/**/*.ts --fix",
+    "test": "ts-node tests/**.ts"
   },
   "author": "gldraphael",
   "license": "MIT",

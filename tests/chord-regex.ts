@@ -1,5 +1,5 @@
-const chordRegex = require('../src/chord-regex')
-const tape = require('tape')
+import { chordRegex } from '../src/chord-regex'
+import * as tape from 'tape'
 
 tape('Regex against valid chords', function (test) {
   let chords = [
@@ -17,10 +17,10 @@ tape('Regex against valid chords', function (test) {
 
   chords.forEach(chord => {
     const input = '[' + chord + ']'
-    if (chordRegex.exec(input) === null || chordRegex.exec(input).length === 0) {
+    if (chordRegex.exec(input) === null || chordRegex.exec(input)!.length === 0) {
       test.fail('Failed for input: ' + input)
     } else {
-      const match = chordRegex.exec(input)[1]
+      const match = chordRegex.exec(input)![1]
       test.equal(match, chord, input + ' passed with match ' + match)
     }
   })

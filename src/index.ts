@@ -1,7 +1,7 @@
-// Load the markdown-it regex plugin
 const mdRegex = require('markdown-it-regexp')
-// Load our chord-regex
-const chordRegex = require('./chord-regex')
+import { chordRegex } from './chord-regex'
+import { MarkdownIt, Options as MarkdownItOptions } from 'markdown-it'
+import * as md from 'markdown-it'
 
 // Set our chord's identifier regex pattern and replacement string
 const chordPattern = mdRegex(
@@ -10,15 +10,15 @@ const chordPattern = mdRegex(
   chordRegex,
 
   // this function will be called when something's in square brackets
-  function (match, utils) {
+  function (match: RegExpExecArray, utils: any) {
     return '<span class="chord"><span class="inner">' + match[1] + '</span></span>'
   }
 )
 
-// Import markdown-it and configure it to use our chordpattern
-const md = require('markdown-it')({
+const chordsheetMarkdown = md({
   html: false, // Enable HTML tags in source
   xhtmlOut: true, // Use '/' to close single tags (<br />).
+
   // This is only for full CommonMark compatibility.
   breaks: true, // Convert '\n' in paragraphs into <br>
   linkify: true, // Autoconvert URL-like text to links
@@ -29,16 +29,13 @@ const md = require('markdown-it')({
   // Double + single quotes replacement pairs, when typographer enabled,
   // and smartquotes on. Could be either a String or an Array.
   quotes: '“”‘’'
-}).use(chordPattern)
+} as MarkdownItOptions)
 
-module.exports = {
-
-  // Our exported function
-  toHtml: function (chordMarkdownText) {
+export class Chordsheet {
+  public toHtml(chordMarkdownText: string) {
     if (chordMarkdownText === undefined) {
       throw new Error('Argument chordMarkdownText is required.')
     }
-    return md.render(chordMarkdownText)
+    return chordsheetMarkdown.render(chordMarkdownText)
   }
-
 }
