@@ -38,5 +38,9 @@
     "chords",
     "chordsheet",
     "sheet"
+  ],
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
   ]
 }
