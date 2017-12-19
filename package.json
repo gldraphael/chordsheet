@@ -17,7 +17,6 @@
     "typescript": "^2.6.2"
   },
   "scripts": {
-    "prepare": "yarn build",
     "build": "./node_modules/.bin/tsc -p tsconfig.commonjs.json",
     "lint": "./node_modules/.bin/tslint src/**/*.ts",
     "lint.fix": "./node_modules/.bin/tslint src/**/*.ts --fix",
