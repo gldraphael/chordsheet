@@ -16,12 +16,18 @@ tape('Regex against valid chords', function (test) {
   test.plan(chords.length)
 
   chords.forEach(chord => {
-    const input = '[' + chord + ']'
-    if (chordRegex.exec(input) === null || chordRegex.exec(input)!.length === 0) {
-      test.fail('Failed for input: ' + input)
-    } else {
-      const match = chordRegex.exec(input)![1]
-      test.equal(match, chord, input + ' passed with match ' + match)
-    }
+    test.true(isMatch(chord), chord)
   })
 })
+
+/** Helper functions */
+
+/**
+ * Checks if the chord was a match against the regexp
+ * 
+ * @param {string} chord The chord to check against
+ * @returns {boolean} True if the chord was recognized by the regexp
+ */
+function isMatch(chord: string): boolean {
+  return chordRegex.test(`[${chord}]`)
+}
