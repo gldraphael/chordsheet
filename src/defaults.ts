@@ -9,7 +9,7 @@ export const defaultOptions = {
   linkify: true, // Autoconvert URL-like text to links
 
   // Enable some language-neutral replacement + quotes beautification
-  typographer: false,
+  typographer: true,
 
   // Double + single quotes replacement pairs, when typographer enabled,
   // and smartquotes on. Could be either a String or an Array.
