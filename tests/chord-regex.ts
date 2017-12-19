@@ -27,6 +27,7 @@ tape('Regex against invalid chords', function (test) {
   let invalidChords = [
     'CMm7', // major minors are dominant 7ths
     'Cmaj', 'CM', // Just use C
+    'Caugaug', 'Cmdim', 'Cmm', 
   ]
   invalidChords = invalidChords.concat('HIJKLMNOPQRSTUVWXYZ'.split('')) // Invalid chordnames
 
