@@ -1,6 +1,9 @@
-const chordNames = `[A-G]`
-const qualityExtensionsEtc = `(#|b|m|M|2|3|4|5|6|7|9|11|13|\\(|\\)|add|sub|dim|aug|maj|min|sus2|sus4?)*`
-const slashChordPattern = `(\\\/${chordNames}#?b?)?`
+const chordNames = `[A-G][#|b]?`
+const qualities = `min|maj|m|M|dim|aug|sus[249]?`
 
-const chordRegexString = `${chordNames}${qualityExtensionsEtc}${slashChordPattern}`
+const degrees = `[#|b|M|maj)?(2|3|4|5|6|7|9|11|13)`
+const extensions = `[\\(]?[add|sub]?${degrees}[\\)]?`
+const slashChordPattern = `\\/${chordNames}`
+
+const chordRegexString = `(${chordNames})(${qualities})?(${extensions})*(${slashChordPattern})?`
 export const chordRegex = RegExp(`\\[(${chordRegexString})\\]`)
