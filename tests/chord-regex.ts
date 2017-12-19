@@ -28,6 +28,7 @@ tape('Regex against invalid chords', function (test) {
     'CMm7', // major minors are dominant 7ths
     'Cmaj', 'CM', // Just use C
     'Caugaug', 'Cmdim', 'Cmm', 
+    'C##', 'Ebb', // Double sharps and double flats not support as of now
   ]
   invalidChords = invalidChords.concat('HIJKLMNOPQRSTUVWXYZ'.split('')) // Invalid chordnames
 
