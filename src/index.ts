@@ -29,7 +29,7 @@ const chordsheetMarkdown = md({
   // Double + single quotes replacement pairs, when typographer enabled,
   // and smartquotes on. Could be either a String or an Array.
   quotes: "“”‘’",
-} as MarkdownItOptions)
+} as MarkdownItOptions).use(chordPattern)
 
 export class Chordsheet {
   /**
