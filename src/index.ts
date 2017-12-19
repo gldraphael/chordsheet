@@ -34,7 +34,7 @@ const chordsheetMarkdown = md({
 export class Chordsheet {
   /**
    * Converts the markdown string to it's HTML representation
-   * 
+   *
    * @static
    * @param {string} chordMarkdownText Markdown text with chords in square brackets
    * @returns HTML representation of the markdown
