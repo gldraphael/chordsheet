@@ -6,6 +6,8 @@ script:
   - npm run lint
   - npm run test
 
+cache: yarn
+
 deploy:
   provider: npm
   email: $EMAIL
