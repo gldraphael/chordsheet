@@ -1,9 +1,8 @@
 import { MarkdownIt, Options as MarkdownItOptions } from "markdown-it"
 import * as md from "markdown-it"
-import { defaultOptions } from "./defaults"
+import { defaultChordsheetOptions } from "./defaults"
 import { chordPattern } from "./mdit-plugins/chord-pattern";
-
-const chordsheetMarkdown = md(defaultOptions).use(chordPattern)
+import { ChordsheetOptions } from "./chordsheet-options";
 
 export class Chordsheet {
   /**
@@ -14,10 +13,16 @@ export class Chordsheet {
    * @returns HTML representation of the markdown
    * @memberof Chordsheet
    */
-  public static toHtml(chordMarkdownText: string) {
-    if (chordMarkdownText === undefined) {
-      throw new Error("Argument chordMarkdownText is required.")
+  public static toHtml(chordMarkdownText: string, options?: ChordsheetOptions) {
+    if(options == null) {
+      options = defaultChordsheetOptions
     }
+    else if(options.markdownItOptions == null) {
+      options.markdownItOptions = defaultChordsheetOptions.markdownItOptions
+    }
+
+    const chordsheetMarkdown = md(options.markdownItOptions as MarkdownItOptions)
+      .use(chordPattern)
     return chordsheetMarkdown.render(chordMarkdownText)
   }
 }

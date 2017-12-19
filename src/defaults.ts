@@ -1,6 +1,7 @@
 import { Options as MarkdownItOptions } from "markdown-it"
+import { ChordsheetOptions } from "./chordsheet-options";
 
-export const defaultOptions = {
+const defaultMdOptions = {
   html: false, // Enable HTML tags in source
   xhtmlOut: true, // Use '/' to close single tags (<br />).
 
@@ -15,3 +16,7 @@ export const defaultOptions = {
   // and smartquotes on. Could be either a String or an Array.
   quotes: "“”‘’",
 } as MarkdownItOptions
+
+export const defaultChordsheetOptions = {
+  markdownItOptions: defaultMdOptions
+} as ChordsheetOptions
