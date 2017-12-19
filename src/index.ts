@@ -5,15 +5,15 @@ import { chordPattern } from "./mdit-plugins/chord-pattern";
 import { ChordsheetOptions } from "./chordsheet-options";
 
 export class Chordsheet {
+
+  private csMarkdownIt: MarkdownIt
+
   /**
-   * Converts the markdown string to it's HTML representation
-   *
-   * @static
-   * @param {string} chordMarkdownText Markdown text with chords in square brackets
-   * @returns HTML representation of the markdown
+   * Creates an instance of Chordsheet.
+   * @param {ChordsheetOptions} [options] Options to customize output
    * @memberof Chordsheet
    */
-  public static toHtml(chordMarkdownText: string, options?: ChordsheetOptions) {
+  constructor(options?: ChordsheetOptions) {
     if(options == null) {
       options = defaultChordsheetOptions
     }
@@ -21,8 +21,31 @@ export class Chordsheet {
       options.markdownItOptions = defaultChordsheetOptions.markdownItOptions
     }
 
-    const chordsheetMarkdown = md(options.markdownItOptions as MarkdownItOptions)
+    this.csMarkdownIt = md(options.markdownItOptions as MarkdownItOptions)
       .use(chordPattern)
-    return chordsheetMarkdown.render(chordMarkdownText)
+  }
+
+  /**
+   * Converts the markdown string to it's HTML representation
+   *
+   * @param {string} chordMarkdownText Markdown text with chords in square brackets
+   * @returns HTML representation of the markdown
+   * @memberof Chordsheet
+   */
+  public toHtml(chordMarkdownText: string) {
+    return this.csMarkdownIt.render(chordMarkdownText)
+  }
+
+  /**
+   * Converts the markdown string to it's HTML representation
+   * Prefer the instance method over this static method
+   *
+   * @static
+   * @param {string} chordMarkdownText Markdown text with chords in square brackets
+   * @returns HTML representation of the markdown
+   * @memberof Chordsheet
+   */
+  public static toHtml(chordMarkdownText: string, options?: ChordsheetOptions) {
+    return new Chordsheet(options).toHtml(chordMarkdownText)
   }
 }
