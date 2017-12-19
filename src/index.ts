@@ -32,6 +32,14 @@ const chordsheetMarkdown = md({
 } as MarkdownItOptions)
 
 export class Chordsheet {
+  /**
+   * Converts the markdown string to it's HTML representation
+   * 
+   * @static
+   * @param {string} chordMarkdownText Markdown text with chords in square brackets
+   * @returns HTML representation of the markdown
+   * @memberof Chordsheet
+   */
   public static toHtml(chordMarkdownText: string) {
     if (chordMarkdownText === undefined) {
       throw new Error("Argument chordMarkdownText is required.")
