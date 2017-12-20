@@ -2,7 +2,7 @@ import { MarkdownIt, Options as MarkdownItOptions } from 'markdown-it'
 import * as md from 'markdown-it'
 import { ChordsheetOptions } from './chordsheet-options'
 import { defaultChordsheetOptions } from './defaults'
-import { chordPattern } from './mdit-plugins/chord-pattern'
+import { chordPattern } from './markdown-it-plugins/chord-pattern'
 
 export class Chordsheet {
 
