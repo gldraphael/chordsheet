@@ -21,7 +21,7 @@
     "build": "./node_modules/.bin/tsc -p tsconfig.commonjs.json",
     "lint": "./node_modules/.bin/tslint src/**/*.ts",
     "lint.fix": "./node_modules/.bin/tslint src/**/*.ts --fix",
-    "test": "ts-node tests/**.ts"
+    "test": "ts-node tests/**/*.ts"
   },
   "author": "gldraphael",
   "license": "MIT",
