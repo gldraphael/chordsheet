@@ -6,6 +6,7 @@
   "types": "./dist/index.d.ts",
   "dependencies": {
     "markdown-it": "^8.1.0",
+    "markdown-it-regex": "^0.2.0",
     "markdown-it-regexp": "^0.4.0"
   },
   "devDependencies": {
