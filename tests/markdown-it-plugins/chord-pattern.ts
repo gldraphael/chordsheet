@@ -1,7 +1,7 @@
 import * as tape from 'tape'
 import { chordPattern } from '../../src/markdown-it-plugins/chord-pattern';
-import { chordRegex } from '../../dist/chord-regex';
-import { defaultChordsheetOptions } from '../../dist/defaults';
+import { chordRegex } from '../../src/chord-regex';
+import { defaultChordsheetOptions } from '../../src/defaults';
 import * as md from 'markdown-it'
 
 tape('chord-pattern plugin test against valid input', function (test) {
