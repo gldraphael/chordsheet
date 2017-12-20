@@ -1,5 +1,5 @@
-import { Options as MarkdownItOptions } from "markdown-it"
-import { ChordsheetOptions } from "./chordsheet-options";
+import { Options as MarkdownItOptions } from 'markdown-it'
+import { ChordsheetOptions } from './chordsheet-options'
 
 const defaultMdOptions = {
   html: false, // Enable HTML tags in source
@@ -14,9 +14,9 @@ const defaultMdOptions = {
 
   // Double + single quotes replacement pairs, when typographer enabled,
   // and smartquotes on. Could be either a String or an Array.
-  quotes: "“”‘’",
+  quotes: '“”‘’',
 } as MarkdownItOptions
 
 export const defaultChordsheetOptions = {
-  markdownItOptions: defaultMdOptions
+  markdownItOptions: defaultMdOptions,
 } as ChordsheetOptions

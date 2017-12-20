@@ -1,5 +1,5 @@
-import * as mdRegex from "markdown-it-regexp"
-import { chordRegex } from "../chord-regex"
+import * as mdRegex from 'markdown-it-regexp'
+import { chordRegex } from '../chord-regex'
 
 // Set our chord's identifier regex pattern and replacement string
 export const chordPattern = mdRegex(
@@ -9,6 +9,6 @@ export const chordPattern = mdRegex(
 
   // this function will be called when something's in square brackets
   (match: RegExpExecArray, utils: any) => {
-    return '<span class="chord"><span class="inner">' + match[1] + "</span></span>"
+    return '<span class="chord"><span class="inner">' + match[1] + '</span></span>'
   },
 )

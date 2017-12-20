@@ -1,10 +1,8 @@
-import { chordRegex } from '../src/chord-regex'
 import * as tape from 'tape'
+import { chordRegex } from '../src/chord-regex'
 
-console.log('Regex: ', chordRegex)
-
-tape('Regex against valid chords', function (test) {
-  let chords = [
+tape('Regex against valid chords', (test) => {
+  const chords = [
     'C', 'D', 'E', 'F', 'G', 'A', 'B', // white keys
     'C#', 'Eb', 'F#', 'Ab', 'G#', 'Bb', // sharps and flats
     'Db', 'D#', 'Gb', 'A#', // alt names for sharps and flats
@@ -19,23 +17,23 @@ tape('Regex against valid chords', function (test) {
 
   test.plan(chords.length)
 
-  chords.forEach(chord => {
+  chords.forEach((chord) => {
     test.true(isMatch(chord), chord)
   })
 })
 
-tape('Regex against invalid chords', function (test) {
+tape('Regex against invalid chords', (test) => {
   let invalidChords = [
     'CMm7', // major minors are dominant 7ths
     'Cmaj', 'CM', // Just use C
-    'Caugaug', 'Cmdim', 'Cmm', 
+    'Caugaug', 'Cmdim', 'Cmm',
     'C##', 'Ebb', // Double sharps and double flats not support as of now
   ]
   invalidChords = invalidChords.concat('HIJKLMNOPQRSTUVWXYZ'.split('')) // Invalid chordnames
 
   test.plan(invalidChords.length)
 
-  invalidChords.forEach(chord => {
+  invalidChords.forEach((chord) => {
     test.false(isMatch(chord), chord)
   })
 })
@@ -44,7 +42,7 @@ tape('Regex against invalid chords', function (test) {
 
 /**
  * Checks if the chord was a match against the regexp
- * 
+ *
  * @param {string} chord The chord to check against
  * @returns {boolean} True if the chord was recognized by the regexp
  */

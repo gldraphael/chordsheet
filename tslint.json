@@ -5,10 +5,12 @@
   ],
   "jsRules": {},
   "rules": {
-    "semicolon": [
-      true,
-      "never"
-    ]
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single", "avoid-escape"],
+    "interface-name" : [true, "never-prefix"]
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["dist/**/*"]
+  }
 }
