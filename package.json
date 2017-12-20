@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/markdown-it": "^0.0.4",
     "@types/tape": "^4.2.31",
-    "tap-spec": "^4.1.1",
+    "faucet": "^0.0.1",
     "tape": "^4.8.0",
     "ts-node": "^4.0.2",
     "tslint": "^5.8.0",
@@ -22,7 +22,7 @@
     "build": "./node_modules/.bin/tsc -p tsconfig.commonjs.json",
     "lint": "./node_modules/.bin/tslint **/*.ts",
     "lint.fix": "./node_modules/.bin/tslint **/*.ts --fix",
-    "test": "ts-node ./node_modules/.bin/tape tests/*.ts tests/**/*.ts | tap-spec"
+    "test": "ts-node ./node_modules/.bin/tape tests/*.ts tests/**/*.ts | faucet"
   },
   "author": "gldraphael",
   "license": "MIT",
