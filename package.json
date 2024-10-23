@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/markdown-it": "^0.0.4",
     "@types/tape": "^4.2.31",
-    "faucet": "^0.0.1",
+    "faucet": "^0.0.4",
     "tape": "^4.8.0",
     "ts-node": "^4.0.2",
     "tslint": "^5.8.0",
