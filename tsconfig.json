@@ -2,5 +2,8 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs"
-  }
+  },
+  "ts-node": {
+    "files": true
+  },
 }
