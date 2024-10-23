@@ -5,11 +5,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "markdown-it": "^8.1.0",
+    "markdown-it": "^14.1.0",
     "markdown-it-regexp": "^0.4.0"
   },
   "devDependencies": {
-    "@types/markdown-it": "^0.0.4",
+    "@types/markdown-it": "^14.1.2",
     "@types/tape": "^4.2.31",
     "faucet": "^0.0.4",
     "tape": "^4.8.0",
